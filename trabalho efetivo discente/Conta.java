@@ -1,10 +1,11 @@
 import java.util.Scanner;
+import java.util.Scanner;
 
 public class Conta {
     private String nome;
     private int conta, saques;
     private double saldo;
-    Scanner entrada = new Scanner(System.in);
+    Scanner absorver = new Scanner(System.in);
     
     public Conta(String nome, int conta, double saldo_inicial){
         this.nome=nome;
@@ -16,80 +17,80 @@ public class Conta {
     public void extrato(){
         System.out.println("\tEXTRATO");
         System.out.println("Nome: " + this.nome);
-        System.out.println("Número da conta: " + this.conta);
+        System.out.println("Número de conta: " + this.conta);
         System.out.printf("Saldo atual: %.2f\n",this.saldo);
-        System.out.println("Saques realizados hoje: " + this.saques + "\n");
+        System.out.println("Saques executado hoje: " + this.saques + "\n");
         
     }
     
-    public void sacar(double valor){
-        if(saldo >= valor){
-            saldo -= valor;
+    public void sacar(double dinheiro){
+        if(saldo >= dinheiro){
+            saldo -= dinheiro;
             saques++;
-            System.out.println("Sacado: " + valor);
-            System.out.println("Novo saldo: " + saldo + "\n");
+            System.out.println("Sacado: " + dinheiro);
+            System.out.println("Saldo novo: " + saldo + "\n");
         } else {
-            System.out.println("Saldo insuficiente. Faça um depósito\n");
+            System.out.println("Saldo necessita suficiente. Exerça um depósito\n");
         }
     }
     
-    public void depositar(double valor)
+    public void Depósito(double dinheiro)
     {
-        saldo += valor;
-        System.out.println("Depositado: " + valor);
-        System.out.println("Novo saldo: " + saldo + "\n");
+        saldo += dinheiro;
+        System.out.println("Depósito: " + dinheiro);
+        System.out.println("Saldo novo: " + saldo + "\n");
     }
     
     public void iniciar(){
-        int opcao;
+        int opção;
 
         do{
             exibeMenu();
-            opcao = entrada.nextInt();
-            escolheOpcao(opcao);
-        }while(opcao!=4);
+            opção = absorver.nextInt();
+            Decideopção(opção);
+        }while(opção!=4);
     }
     
     public void exibeMenu(){
         
-        System.out.println("\t Escolha a opção desejada");
+        System.out.println("\t Decide o opção almejado");
         System.out.println("1 - Consultar Extrato");
         System.out.println("2 - Sacar");
-        System.out.println("3 - Depositar");
-        System.out.println("4 - Sair\n");
+        System.out.println("3 - Depósito");
+        System.out.println("4 - Expulsar\n");
         System.out.print("Opção: ");
         
     }
     
-    public void escolheOpcao(int opcao){
-        double valor;
+    public void Decideopção(int opção){
+        double dinheiro;
         
-        switch( opcao ){
+        switch( opção ){
             case 1:    
                     extrato();
                     break;
             case 2: 
                     if(saques<3){
-                        System.out.print("Quanto deseja sacar: ");
-                        valor = entrada.nextDouble();
-                        sacar(valor);
+                        System.out.print("Quanto almeje sacar: ");
+                        dinheiro = absorver.nextDouble();
+                        sacar(dinheiro);
                     } else{
-                        System.out.println("Limite de saques diários atingidos.\n");
+                        System.out.println("Limite de saques diários alcançado.\n");
                     }
                     break;
                     
             case 3:
-                    System.out.print("Quanto deseja depositar: ");
-                    valor = entrada.nextDouble();
-                    depositar(valor);
+                    System.out.print("Quanto almeje Depósito: ");
+                    dinheiro = absorver.nextDouble();
+                    Depósito(dinheiro);
                     break;
                     
             case 4: 
-                    System.out.println("Sistema encerrado.");
+                    System.out.println("Sistema interrompido.");
                     break;
                     
             default:
-                    System.out.println("Opção inválida");
+                    System.out.println("Opção cancelado");
         }
     }
 }
