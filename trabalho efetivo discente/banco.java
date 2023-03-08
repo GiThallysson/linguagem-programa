@@ -17,7 +17,7 @@ public class banco {
         System.out.print("Efetue o nome: ");
         nome = absorver.nextLine();
         
-        System.out.print("Entre com o dinheiro inicial depósito no conta: ");
+        System.out.print("absorver com o dinheiro inicial depósito no conta: ");
         inicial = absorver.nextDouble();
         
         //Criando a conta de um cliente
