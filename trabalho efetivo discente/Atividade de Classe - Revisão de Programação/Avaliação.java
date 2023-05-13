@@ -10,10 +10,6 @@ private int nota;
 
 private String comentario;
 
-csharp
-
-Copy code
-
 public Avaliacao(Propriedade propriedade, Hospede hospede, int nota, String comentario) {
 
     this.propriedade = propriedade;
