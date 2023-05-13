@@ -12,10 +12,6 @@ private Date dataCheckout;
 
 private double precoTotal;
 
-typescript
-
-Copy code
-
 public Reserva(Propriedade propriedade, Hospede hospede, Date dataCheckin, Date dataCheckout, double precoTotal) {
 
     this.propriedade = propriedade;
